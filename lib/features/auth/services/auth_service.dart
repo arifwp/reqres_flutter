@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:reqres_flutter/constants/error_handling.dart';
 import 'package:reqres_flutter/constants/global_variable.dart';
 import 'package:reqres_flutter/constants/utils.dart';
-import 'package:reqres_flutter/home/screens/home_screen.dart';
+import 'package:reqres_flutter/features/home/screens/home_screen.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -26,6 +26,8 @@ class AuthService {
         },
       );
 
+      print(res.statusCode);
+
       httpErrorHandle(
         response: res,
         context: context,
@@ -40,7 +42,6 @@ class AuthService {
         },
       );
     } catch (e) {
-      print(e.toString());
       showSnackBar(context, e.toString());
     }
   }

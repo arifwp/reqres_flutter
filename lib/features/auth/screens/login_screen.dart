@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:reqres_flutter/auth/screens/register_screen.dart';
-import 'package:reqres_flutter/auth/services/auth_service.dart';
+import 'package:reqres_flutter/features/auth/screens/register_screen.dart';
+import 'package:reqres_flutter/features/auth/services/auth_service.dart';
 import 'package:reqres_flutter/common/custom_button.dart';
 import 'package:reqres_flutter/common/custom_textfield.dart';
 import 'package:reqres_flutter/constants/global_variable.dart';
