@@ -1,10 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:reqres_flutter/common/custom_button.dart';
 import 'package:reqres_flutter/common/custom_textfield.dart';
-import 'package:reqres_flutter/constants/global_variable.dart';
 import 'package:reqres_flutter/constants/utils.dart';
 import 'package:reqres_flutter/features/create/services/create_service.dart';
 
