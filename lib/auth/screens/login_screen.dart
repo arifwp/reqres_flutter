@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reqres_flutter/auth/screens/register_screen.dart';
+import 'package:reqres_flutter/auth/services/auth_service.dart';
 import 'package:reqres_flutter/common/custom_button.dart';
 import 'package:reqres_flutter/common/custom_textfield.dart';
 import 'package:reqres_flutter/constants/global_variable.dart';
@@ -15,12 +16,21 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final AuthService authService = AuthService();
 
   @override
   void dispose() {
     super.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+  }
+
+  void signInUser() {
+    authService.signInUser(
+      context: context,
+      email: _emailController.text,
+      password: _passwordController.text,
+    );
   }
 
   void toRegister() {
@@ -75,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(
                 height: 60,
               ),
-              CustomButton(text: 'Sign in', onTap: () {}),
+              CustomButton(text: 'Sign in', onTap: signInUser),
               const SizedBox(
                 height: 30,
               ),

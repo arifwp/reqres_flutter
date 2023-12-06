@@ -1,63 +1,69 @@
 import 'dart:convert';
 
+// class User {
+//   final String id;
+//   final String email;
+//   final String firstName;
+//   final String lastName;
+//   final String avatar;
+
+//   User({
+//     required this.id,
+//     required this.email,
+//     required this.firstName,
+//     required this.lastName,
+//     required this.avatar,
+//   });
+
+//   Map<String, dynamic> toMap() {
+//     return {
+//       'id': id,
+//       'email': email,
+//       'first_name': firstName,
+//       'last_name': lastName,
+//       'avatar': avatar,
+//     };
+//   }
+
+//   factory User.fromMap(Map<String, dynamic> map) {
+//     return User(
+//       id: map['_id'],
+//       email: map['email'],
+//       firstName: map['firstName'],
+//       lastName: map['lastName'],
+//       avatar: map['avatar'],
+//     );
+//   }
+
+//   String toJson() => json.encode(toMap());
+
+//   factory User.fromJson(String source) => User.fromMap(json.decode(source));
+// }
+
 class User {
-  final String id;
-  final String email;
-  final String password;
-  final String first_name;
-  final String last_name;
-  final String avatar;
+  int? id;
+  String? email;
+  String? firstName;
+  String? lastName;
+  String? avatar;
 
-  User({
-    required this.id,
-    required this.email,
-    required this.password,
-    required this.first_name,
-    required this.last_name,
-    required this.avatar,
-  });
+  User({this.id, this.email, this.firstName, this.lastName, this.avatar});
 
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'email': email,
-      'password': password,
-      'first_name': first_name,
-      'last_name': last_name,
-      'avatar': avatar,
-    };
+  User.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    email = json['email'];
+    firstName = json['first_name'];
+    lastName = json['last_name'];
+    avatar = json['avatar'];
   }
 
-  factory User.fromMap(Map<String, dynamic> map) {
-    return User(
-      id: map['_id'],
-      email: map['email'],
-      password: map['password'],
-      first_name: map['first_name'],
-      last_name: map['last_name'],
-      avatar: map['avatar'],
-    );
-  }
-
-  String toJson() => json.encode(toMap());
-
-  factory User.fromJson(String source) => User.fromMap(json.decode(source));
-
-  User copyWith({
-    String? id,
-    String? email,
-    String? password,
-    String? first_name,
-    String? last_name,
-    String? avatar,
-  }) {
-    return User(
-      id: id ?? this.id,
-      email: email ?? this.email,
-      password: password ?? this.password,
-      first_name: first_name ?? this.first_name,
-      last_name: last_name ?? this.last_name,
-      avatar: avatar ?? this.avatar,
-    );
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['email'] = this.email;
+    data['first_name'] = this.firstName;
+    data['last_name'] = this.lastName;
+    data['avatar'] = this.avatar;
+    return data;
   }
 }
